@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lançamento de Dados</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    #resultado-lancamento {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    #resultado-lancamento p {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    #resultado-lancamento div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #resultado-lancamento img {
+      width: 80px;
+      height: 80px;
+      margin: 10px;
+    }
+
+    #resultado-lancamento p:last-child {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    #botao-lancar-dados {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #botao-lancar-dados:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h1>Lançamento de Dados</h1>
+  <button id="botao-lancar-dados">Lançar Dados</button>
+  <div id="resultado-lancamento"></div>
+
+  <script>
+    const botaoLancarDados = document.getElementById("botao-lancar-dados");
+    const resultadoLancamento = document.getElementById("resultado-lancamento");
+
+    function lancarDados() {
+      let resultado1 = Math.floor(Math.random() * 6) + 1;
+      let resultado2 = Math.floor(Math.random() * 6) + 1;
+      let somaResultados = resultado1 + resultado2;
+      resultadoLancamento.innerHTML = `
+        <p>O resultado do lançamento dos dados foi:</p>
+        <div>
+            <img src="dados${resultado1}.png" alt="Dados ${resultado1}">
+            <img src="dados${resultado2}.png" alt="Dados ${resultado2}">
+        </div>
+        <p>A soma dos resultados é: ${somaResultados}</p>
+      `;
+    }
+
+    botaoLancarDados.addEventListener("click", lancarDados);
+  </script>
+</body>
+</html>
